@@ -3,15 +3,11 @@
     Articles
 @endsection
 @section('contenu')
-    @if ($articles)
-    @foreach ($articles as  $article)
-    <article>
-        <h2>{{ $article["title"] }}</h2>
-        <p>{{ $article["body"] }}</p>
-    </article>
-    @endforeach 
-    @else
-    <p> Oups!!! 😢 Aucun article trouvé</p>
-    @endif
+    <h2>Articles</h2>
+    @forelse ($articles as  $article)
+    @include ('articles.index')
+    @empty
+    @include('articles.no-articles')
+    @endforelse
     <!-- <pre>{{ dd($articles) }}</pre> -->
 @endsection
